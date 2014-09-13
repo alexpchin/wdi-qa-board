@@ -14,3 +14,17 @@
           = form_tag answer_instructor_question_path(question), method: :put do
             = text_area_tag :answer
             = submit_tag "Answer"
+
+%h3 Answered
+%table
+  %tbody
+    - @answered_questions.each do |question|
+      %tr
+        %td
+          = link_to question.body, question
+          %span.round.success.label
+            #{question.get_upvotes.size} Likes
+          %span.round.alert.label
+            #{question.get_dislikes.size} DisLikes
+        %td
+          = question.answer

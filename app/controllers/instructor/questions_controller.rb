@@ -1,6 +1,7 @@
 class Instructor::QuestionsController < Instructor::ApplicationController
   def index
     @unanswered_questions = Question.where(answer: nil)
+    @answered_questions = Question.where.not(answer: nil)
   end
 
   def answer
