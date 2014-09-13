@@ -1,0 +1,29 @@
+{
+  "name": "wdi-qa-board",
+  "version": "0.0.0",
+  "homepage": "https://github.com/geraudmathe/wdi-qa-board",
+  "authors": [
+    "us"
+  ],
+  "description": "A QA Board for WDI",
+  "keywords": [
+    "Angular",
+    "Rails"
+  ],
+  "license": "MIT",
+  "private": true,
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "vendor/assets/components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "angular": "1.2.23",
+    "angular-resource": "1.2.23",
+    "angular-route": "1.2.23"
+  }
+}
+
