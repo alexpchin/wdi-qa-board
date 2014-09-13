@@ -44,11 +44,13 @@ Question.create!(
 
 Question.create!(
   body: 'What is the meaning of life?',
+  answer: 'The answer is definitively proven to be 42.',
   user: student2
 )
 
 Question.create!(
   body: 'Why are my boots sticky?',
+  answer: 'You probably stepped in gum. I would watch where I walk.',
   user: student1
 )
 
