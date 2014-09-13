@@ -8,7 +8,11 @@ Rails.application.routes.draw do
   end
 
   namespace :instructor do
-    resources :questions
+    resources :questions do
+      member do
+        put "answer", to: "questions#answer"
+      end
+    end
   end
 
   root to: "questions#index"
