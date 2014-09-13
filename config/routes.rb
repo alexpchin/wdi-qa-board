@@ -7,5 +7,9 @@ Rails.application.routes.draw do
     end
   end
 
+  namespace :instructor do
+    resources :questions
+  end
+
   root to: "questions#index"
 end
