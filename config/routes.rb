@@ -7,13 +7,16 @@ Rails.application.routes.draw do
     end
   end
 
+  namespace :admin do
+    resources :users, only: [:index, :show, :update]
+  end
+
   namespace :instructor do
     resources :questions, only: [:index] do
       member do
         put "answer", to: "questions#answer"
       end
     end
-  end
 
   root to: "questions#index"
 end

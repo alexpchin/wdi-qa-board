@@ -1,0 +1,8 @@
+.row
+  .columns.large-6.large-centered
+    %h1= @user.full_name
+    = form_for [:admin, @user] do |f|
+      = f.select :role, options_for_select(User::ROLES, [@user.role])
+      = f.submit
+
+
