@@ -1,5 +1,8 @@
 class QuestionsController < ApplicationController
   before_action :set_question, only: [:show, :edit, :update, :destroy, :like, :dislike]
+
+  before_action :authenticate_user!, only: [:new, :create, :put, :update, :like , :dislike]
+
   authorize_resource
   # GET /questions
   # GET /questions.json
@@ -56,6 +59,16 @@ class QuestionsController < ApplicationController
       format.html { redirect_to questions_url, notice: 'Question was successfully destroyed.' }
       format.json { head :no_content }
     end
+  end
+
+  def like
+    @question.liked_by current_user
+    redirect_to @question
+  end
+
+  def dislike
+    @question.downvote_from current_user
+    redirect_to @question
   end
 
   private

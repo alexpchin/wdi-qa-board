@@ -1,0 +1,15 @@
+%h1 Listing questions
+%table
+  %tbody
+    - @questions.each do |question|
+      %tr
+        %td
+          = link_to question.body, question
+          %span.round.success.label
+            #{question.get_upvotes.size} Likes
+          %span.round.alert.label
+            #{question.get_dislikes.size} DisLikes
+
+        
+%br/
+= link_to 'New Question', new_question_path
