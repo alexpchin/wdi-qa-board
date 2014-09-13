@@ -3,6 +3,10 @@ class User < ActiveRecord::Base
 
   has_many :questions
 
+  def full_name
+    "#{self.first_name} #{self.last_name}"
+  end
+
   def admin?
     self.role == 'admin'
   end
