@@ -1,6 +1,8 @@
 class User < ActiveRecord::Base
   devise :registerable, :database_authenticatable
 
+  has_many :questions
+  
   def admin?
     user.role == 'admin'
   end
@@ -12,4 +14,5 @@ class User < ActiveRecord::Base
   def student?
     user.role == 'student'
   end
+
 end
