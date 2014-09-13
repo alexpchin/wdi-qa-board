@@ -1,8 +1,10 @@
 source 'https://rubygems.org'
 
-
+gem 'devise', '~> 3.3.0'
 
 gem 'acts_as_votable', '~> 0.10.0'
+
+gem 'pry-rails'
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '4.1.1'
@@ -40,4 +42,3 @@ gem 'spring',        group: :development
 
 # Use debugger
 # gem 'debugger', group: [:development, :test]
-
