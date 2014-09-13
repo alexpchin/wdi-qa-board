@@ -2,17 +2,17 @@ class User < ActiveRecord::Base
   devise :registerable, :database_authenticatable
 
   has_many :questions
-  
+
   def admin?
-    user.role == 'admin'
+    self.role == 'admin'
   end
 
   def instructor?
-    user.role == 'instructor'
+    self.role == 'instructor'
   end
 
   def student?
-    user.role == 'student'
+    self.role == 'student'
   end
 
 end
