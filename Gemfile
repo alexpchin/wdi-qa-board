@@ -2,6 +2,8 @@ source 'https://rubygems.org'
 
 gem 'devise', '~> 3.3.0'
 
+gem 'cancancan', '~> 1.9'
+
 gem 'acts_as_votable', '~> 0.10.0'
 
 gem 'pry-rails'
