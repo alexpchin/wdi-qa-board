@@ -19,6 +19,14 @@
           %a{:href => "#"}
             %span menu
       %section.top-bar-section
+        %ul.left
+          %li.has-form
+            .row
+              .large-8.small-9.columns
+                = search_form_for @q do |f|
+                  = f.search_field :body_cont, placeholder: "Search Questions..."
+              .large-4.small-3.columns
+                %a.alert.button.expand{href: "#"} Search
         / Right Nav Section
         %ul.right
           %li.divider
