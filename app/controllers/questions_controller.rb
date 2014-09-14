@@ -2,6 +2,8 @@ class QuestionsController < ApplicationController
   before_action :set_question, only: [:show, :edit, :update, :destroy, :like, :dislike]
 
   before_action :authenticate_user!, only: [:new, :create, :put, :update, :like , :dislike]
+
+  authorize_resource
   # GET /questions
   # GET /questions.json
   def index
@@ -26,7 +28,6 @@ class QuestionsController < ApplicationController
   # POST /questions.json
   def create
     @question = Question.new(question_params)
-
     respond_to do |format|
       if @question.save
         format.html { redirect_to @question, notice: 'Question was successfully created.' }
