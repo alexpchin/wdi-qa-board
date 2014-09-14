@@ -7,7 +7,8 @@ class QuestionsController < ApplicationController
   # GET /questions
   # GET /questions.json
   def index
-    @questions = Question.all
+    @q = Question.search(params[:q])
+    @questions = @q.result(distinct: true)
   end
 
   # GET /questions/1
