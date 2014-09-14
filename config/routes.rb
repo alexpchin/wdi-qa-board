@@ -7,5 +7,9 @@ Rails.application.routes.draw do
     end
   end
 
+  namespace :admin do
+    resources :users, only: [:index, :show, :update]
+  end
+
   root to: "questions#index"
 end
