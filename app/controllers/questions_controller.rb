@@ -49,13 +49,6 @@ class QuestionsController < ApplicationController
     end
   end
 
-  def like
-
-  end
-
-  def dislike
-    
-  end
 
   def destroy
     @question.destroy
