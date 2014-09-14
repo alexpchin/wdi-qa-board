@@ -6,4 +6,6 @@ Rails.application.routes.draw do
       put "dislike", to: "questions#downvote"
     end
   end
+
+  root to: "questions#index"
 end
