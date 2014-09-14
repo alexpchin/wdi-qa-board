@@ -4,6 +4,7 @@ class QuestionsController < ApplicationController
   before_action :authenticate_user!, only: [:new, :create, :put, :update, :like , :dislike]
 
   authorize_resource
+  skip_authorize_resource :only => [:like, :dislike]
   # GET /questions
   # GET /questions.json
   def index
@@ -29,6 +30,7 @@ class QuestionsController < ApplicationController
   # POST /questions.json
   def create
     @question = Question.new(question_params)
+    @question.answer = nil
     respond_to do |format|
       if @question.save
         format.html { redirect_to @question, notice: 'Question was successfully created.' }
@@ -62,11 +64,13 @@ class QuestionsController < ApplicationController
   end
 
   def like
+    authorize! :vote, @question
     @question.liked_by current_user
     redirect_to @question
   end
 
   def dislike
+    authorize! :vote, @question
     @question.downvote_from current_user
     redirect_to @question
   end

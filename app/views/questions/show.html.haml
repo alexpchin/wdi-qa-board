@@ -1,7 +1,13 @@
 %p#notice= notice
 .row
-  .small-10.small-centered.columns 
+  .small-10.small-centered.columns
     %h1.question= @question.body
     .row
       .small-3.small-centered.columns= link_to "This question is interesting", like_question_path(@question), method: :put
       .small-3.small-centered.columns= link_to "I'm not sure it's relevant", dislike_question_path(@question), method: :put
+    - if @question.answer
+      %hr
+      .row.answer
+        %h3
+          Answer
+        %p= @question.answer
