@@ -11,5 +11,12 @@ Rails.application.routes.draw do
     resources :users, only: [:index, :show, :update]
   end
 
+  namespace :instructor do
+    resources :questions, only: [:index] do
+      member do
+        put "answer", to: "questions#answer"
+      end
+    end
+
   root to: "questions#index"
 end
